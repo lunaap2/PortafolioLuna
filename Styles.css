@@ -1,0 +1,69 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+    background-color: #fff0f5;
+}
+
+.bg-rosa-claro {
+    background-color: #ffe4ec;
+}
+
+.bg-rosa-medio {
+    background-color: #ffb6c1;
+}
+
+.bg-rosa-fuerte {
+    background-color: #ff69b4;
+}
+
+
+.text-rosa {
+    color: #ff1493;
+}
+
+.border-rosa {
+    border-color: #ff69b4 !important;
+}
+
+
+.btn-rosa {
+    background-color: #ff69b4;
+    border-color: #ff69b4;
+    color: white;
+}
+
+.btn-rosa:hover {
+    background-color: #ff1493;
+    border-color: #ff1493;
+    color: white;
+}
+
+/* Esto quita el azul y el subrayado de todos los links del nav */
+.nav-link-custom {
+    color: #9ca3af !important; /* Gris claro como el de Tailwind */
+    text-decoration: none !important;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+}
+
+.nav-link-custom:hover {
+    background-color: #1e293b !important;
+    color: #ff69b4 !important; /* Rosa al pasar el mouse */
+}
+
+.nav-link-custom.active {
+    background-color: #1e293b !important;
+    color: #ffffff !important; /* Blanco para el que está activo */
+}
+
+
+
+#canvas-particles {
+    display: block;
+    width: 100vw !important; /* Que ocupe todo el ancho */
+    height: 600px !important; /* Fuerza el alto */
+    background-color: transparent; 
+}
