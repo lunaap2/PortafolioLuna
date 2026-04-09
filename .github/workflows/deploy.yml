@@ -30,7 +30,7 @@ jobs:
       - name: Build
         run: npm run build
       - name: Bypass Jekyll on GitHub Pages
-        run: touch mi-portafolio-astro/dist/.nojekyll
+        run: touch dist/.nojekyll
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
