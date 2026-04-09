@@ -32,6 +32,8 @@ import parkingImg from '../assets/images/flowchart-ai.png';
         integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <link rel="stylesheet" href="https://rsms.me/inter/inter.css" />
     <link rel="icon" type="image/png" href={faviconImg.src} />
+    <!-- Base path para el SPA Router (dinámico según entorno) -->
+    <meta name="spa-base" content={import.meta.env.BASE_URL.replace(/\/$/, '')} />
     <!-- GitHub Pages SPA: restore clean URL from 404 redirect -->
     <script is:inline>
         (function(l) {
