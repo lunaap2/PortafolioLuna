@@ -32,6 +32,19 @@ import parkingImg from '../assets/images/flowchart-ai.png';
         integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <link rel="stylesheet" href="https://rsms.me/inter/inter.css" />
     <link rel="icon" type="image/png" href={faviconImg.src} />
+    <!-- GitHub Pages SPA: restore clean URL from 404 redirect -->
+    <script is:inline>
+        (function(l) {
+            if (l.search[1] === '/') {
+                var decoded = l.search.slice(1).split('&').map(function(s) {
+                    return s.replace(/~and~/g, '&')
+                }).join('?');
+                window.history.replaceState(null, null,
+                    l.pathname.slice(0, -1) + decoded + l.hash
+                );
+            }
+        }(window.location))
+    </script>
 </head>
 
 <body class="d-flex flex-column min-vh-100">
@@ -40,18 +53,18 @@ import parkingImg from '../assets/images/flowchart-ai.png';
         <article class="container d-flex align-items-center justify-content-between">
 
             <article class="d-flex align-items-center gap-4">
-                <a href="#" aria-label="Ir al inicio">
+                <a href="/" aria-label="Ir al inicio" data-spa-link>
                     <Image src={faviconImg} alt="Logotipo Portafolio Luna" style="height: 32px; width: 32px;" width={32} height={32} />
                 </a>
 
                 <article class="d-none d-md-flex align-items-center gap-2">
-                    <a href="#/inicio" class="nav-link-custom active" data-spa-link>Inicio</a>
-                    <a href="#/sobre-mi" class="nav-link-custom" data-spa-link>Sobre Mí</a>
-                    <a href="#/proyectos" class="nav-link-custom" data-spa-link>Proyectos</a>
-                    <a href="#/habilidades" class="nav-link-custom" data-spa-link>Habilidades</a>
-                    <a href="#/certificaciones" class="nav-link-custom" data-spa-link>Certificados</a>
-                    <a href="#/testimonios" class="nav-link-custom" data-spa-link>Testimonios</a>
-                    <a href="#/contacto" class="nav-link-custom" data-spa-link>Contáctame</a>
+                    <a href="/inicio" class="nav-link-custom active" data-spa-link>Inicio</a>
+                    <a href="/sobre-mi" class="nav-link-custom" data-spa-link>Sobre Mí</a>
+                    <a href="/proyectos" class="nav-link-custom" data-spa-link>Proyectos</a>
+                    <a href="/habilidades" class="nav-link-custom" data-spa-link>Habilidades</a>
+                    <a href="/certificaciones" class="nav-link-custom" data-spa-link>Certificados</a>
+                    <a href="/testimonios" class="nav-link-custom" data-spa-link>Testimonios</a>
+                    <a href="/contacto" class="nav-link-custom" data-spa-link>Contáctame</a>
                 </article>
             </article>
 
@@ -82,7 +95,7 @@ import parkingImg from '../assets/images/flowchart-ai.png';
                 <p class="lead">Estudiante de Ciencia de Datos (UNIR) y Auxiliar de Sistemas (CESDE) | Test Automation Engineer Trainee en Globant | BSc en Desarrollo de Software (SENA)</p>
                 <p class="badge bg-danger rounded-pill">Disponible para nuevos desafíos</p>
                 <br><br>
-                <a href="#/proyectos" class="btn btn-rosa btn-lg shadow" data-spa-link
+                <a href="/proyectos" class="btn btn-rosa btn-lg shadow" data-spa-link
                     style="border: 2px solid #ff1493; border-radius: 30px;">Explorar mi trabajo</a>
             </article>
             
@@ -102,7 +115,7 @@ import parkingImg from '../assets/images/flowchart-ai.png';
             <article class="alert alert-danger alert-dismissible fade show d-flex align-items-center p-3 shadow-sm border-0 border-start border-4 border-danger rounded" role="alert" style="background-color: #ffe4ec;">
                 <span class="me-2 fs-5"></span>
                 <span> Transformando ideas abstractas en soluciones digitales eficientes y escalables.</span>
-                <a href="#/contacto" class="alert-link ms-3 text-danger fw-bold text-decoration-underline" data-spa-link>Hablemos sobre tu proyecto</a>
+                <a href="/contacto" class="alert-link ms-3 text-danger fw-bold text-decoration-underline" data-spa-link>Hablemos sobre tu proyecto</a>
                 <button class="btn-close" data-bs-dismiss="alert" aria-label="Cerrar mensaje de bienvenida"></button>
             </article>
         </article>
@@ -488,6 +501,39 @@ import parkingImg from '../assets/images/flowchart-ai.png';
         </article>
     </section>
 
+    <!-- Vista Dinámica: Perfil de Usuario (ruta /user/:id) -->
+    <section id="user-profile" class="container py-5 mt-4" style="display: none;">
+        <article class="row justify-content-center">
+            <article class="col-12 col-md-8 col-lg-6">
+                <article class="card border-rosa shadow-sm" style="border-radius: 12px; border-width: 2px;">
+                    <article class="card-body p-5 text-center">
+                        <div class="mb-4">
+                            <svg width="80" height="80" fill="#ff69b4" viewBox="0 0 16 16" style="opacity: 0.7;">
+                                <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
+                                <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
+                            </svg>
+                        </div>
+                        <h2 class="text-rosa fw-bold mb-2">Perfil de Usuario</h2>
+                        <p class="text-muted mb-1">ID / Username:</p>
+                        <h3 id="user-id-display" class="h4 fw-bold text-dark mb-3">—</h3>
+                        <hr class="w-50 mx-auto" style="border-color: #ff69b4;">
+                        <p class="text-muted mt-3 mb-0">Este es un ejemplo de <strong>ruta dinámica</strong>. El parámetro <code>:id</code> se extrae directamente de la URL usando la History API.</p>
+                        <a href="/inicio" class="btn btn-rosa btn-sm mt-4 rounded-pill px-4" data-spa-link>← Volver al Inicio</a>
+                    </article>
+                </article>
+            </article>
+        </article>
+    </section>
+
+    <!-- Vista 404 -->
+    <section id="not-found" class="container py-5 mt-4" style="display: none;">
+        <article class="text-center py-5">
+            <h2 class="display-1 text-rosa fw-bold">404</h2>
+            <p class="lead text-muted">La página que buscas no existe.</p>
+            <a href="/inicio" class="btn btn-rosa btn-lg rounded-pill px-5 mt-3" data-spa-link>Volver al Inicio</a>
+        </article>
+    </section>
+
     <footer class="mt-auto" style="background-color: #fff0f5; padding: 40px 0; border-top: 2px solid #ffb6c1;">
         <article class="container d-flex flex-column flex-md-row justify-content-between align-items-center">
 
@@ -524,157 +570,12 @@ import parkingImg from '../assets/images/flowchart-ai.png';
         </article>
     </footer>
 
-    <script is:inline>
-        const canvas = document.getElementById('canvas-particles');
-        const ctx = canvas.getContext('2d');
-        let particles = [];
-        const particleCount = 80;
-        let animationFrameId;
-
-        function resizeCanvas() {
-            if (!canvas) return;
-            canvas.width = window.innerWidth;
-            canvas.height = 600;
-        }
-
-        window.addEventListener('resize', resizeCanvas);
-        resizeCanvas();
-
-        class Particle {
-            constructor() {
-                this.x = Math.random() * canvas.width;
-                this.y = Math.random() * canvas.height;
-                this.vx = (Math.random() - 0.5) * 1.5;
-                this.vy = (Math.random() - 0.5) * 1.5;
-                this.size = Math.random() * 3 + 1;
-            }
-            update() {
-                this.x += this.vx;
-                this.y += this.vy;
-                if (this.x < 0 || this.x > canvas.width) this.vx *= -1;
-                if (this.y < 0 || this.y > canvas.height) this.vy *= -1;
-            }
-            draw() {
-                ctx.beginPath();
-                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-                ctx.fillStyle = '#ff69b4';
-                ctx.fill();
-            }
-        }
-
-        function init() {
-            particles = [];
-            for (let i = 0; i < particleCount; i++) {
-                particles.push(new Particle());
-            }
-        }
-
-        function animate() {
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
-            particles.forEach(p => {
-                p.update();
-                p.draw();
-            });
-            animationFrameId = requestAnimationFrame(animate);
-        }
-
-        init();
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    if (!animationFrameId) animate();
-                } else {
-                    if (animationFrameId) cancelAnimationFrame(animationFrameId);
-                    animationFrameId = null;
-                }
-            });
-        });
-
-        const sectionInicio = document.getElementById('inicio');
-        if (sectionInicio) {
-            observer.observe(sectionInicio);
-        } else {
-            animate();
-        }
-    </script>
+    <script src="../scripts/particles.js"></script>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
     
-    <!-- SPA Router Logic -->
-    <script is:inline>
-        class Router {
-            constructor() {
-                this.routes = [
-                    'inicio', 'sobre-mi', 'proyectos', 
-                    'habilidades', 'certificaciones', 'testimonios', 'contacto'
-                ];
-                
-                // Activar el modo SPA
-                document.body.classList.add('spa-active');
-                
-                // Escuchar cambios en el Hash
-                window.addEventListener('hashchange', () => this.handleRouting());
-                
-                // Manejar clic inicial
-                this.handleRouting();
-            }
-
-            handleRouting() {
-                let hash = window.location.hash;
-                // Si está vacío o es solo "#", o no tiene la barra de nuestro patrón, default a inicio
-                if (!hash || hash === '#' || hash === '#/') {
-                    hash = '#/inicio';
-                }
-
-                // Extraer el nombre de la sección
-                const routeName = hash.replace('#/', '');
-                
-                // Validar si la ruta existe
-                const viewId = this.routes.includes(routeName) ? routeName : 'inicio';
-                
-                // Renderizar vista
-                this.renderView(viewId);
-                
-                // Actualizar menú
-                this.updateActiveNav(viewId);
-            }
-
-            renderView(viewId) {
-                // Remover clase active de todas las sections y el header
-                document.querySelectorAll('section, header.spa-header').forEach(el => {
-                    el.classList.remove('active-view');
-                });
-
-                // Mostrar la vista que corresponde
-                const targetView = document.getElementById(viewId);
-                if (targetView) targetView.classList.add('active-view');
-                
-                // El header de bienvenida solo lo mostraremos en inicio
-                if (viewId === 'inicio') {
-                    const header = document.getElementById('header-alert');
-                    if (header) header.classList.add('active-view');
-                }
-                
-                // Scroll arriba para que siempre inicie arriba al cambiar de vista
-                window.scrollTo(0, 0);
-            }
-
-            updateActiveNav(viewId) {
-                document.querySelectorAll('.nav-link-custom').forEach(link => {
-                    link.classList.remove('active');
-                    if (link.getAttribute('href') === `#/${viewId}`) {
-                        link.classList.add('active');
-                    }
-                });
-            }
-        }
-
-        // Inicializar una vez que el DOM esté listo
-        document.addEventListener('DOMContentLoaded', () => {
-            new Router();
-        });
-    </script>
+    <!-- SPA Router Logic (History API) -->
+    <script src="../scripts/router.js"></script>
 
     <style>
         .hover-elevate {
@@ -697,9 +598,9 @@ import parkingImg from '../assets/images/flowchart-ai.png';
         }
         body.spa-active section.active-view, body.spa-active header.spa-header.active-view {
             display: block !important;
-            animation: fadeIn 0.4s ease-out forwards;
+            animation: spaFadeIn 0.4s ease-out forwards;
         }
-        @keyframes fadeIn {
+        @keyframes spaFadeIn {
             from { opacity: 0; transform: translateY(15px); }
             to { opacity: 1; transform: translateY(0); }
         }

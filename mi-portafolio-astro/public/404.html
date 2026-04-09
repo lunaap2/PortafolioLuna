@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Redirigiendo...</title>
+    <script>
+        // GitHub Pages SPA redirect trick
+        // Cuando el usuario refresca en /sobre-mi o navega directo a /user/luna,
+        // GitHub Pages sirve este 404.html. Este script redirige al index.html
+        // preservando la ruta en un query param para que el SPA Router la resuelva.
+        var pathSegmentsToKeep = 1; // Para repos de proyecto (ej. /PortafolioLuna)
+        var l = window.location;
+        l.replace(
+            l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') +
+            l.pathname.split('/').slice(0, 1 + pathSegmentsToKeep).join('/') + '/?/' +
+            l.pathname.slice(1).split('/').slice(pathSegmentsToKeep).join('/').replace(/&/g, '~and~') +
+            (l.search ? '&' + l.search.slice(1).replace(/&/g, '~and~') : '') +
+            l.hash
+        );
+    </script>
+</head>
+<body>
+</body>
+</html>
