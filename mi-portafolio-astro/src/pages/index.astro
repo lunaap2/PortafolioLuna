@@ -10,6 +10,9 @@ import stepfitImg from '../assets/images/stepfit-ecommerce.png';
 import goImg from '../assets/images/global-opportunities.png';
 import vamsImg from '../assets/images/vams-accesorios.png';
 import parkingImg from '../assets/images/flowchart-ai.png';
+import lunatechspaceImg from '../assets/images/lunatechspace.png';
+import actividadReactImg from '../assets/images/actividad-react.png';
+import proximoProyectoImg from '../assets/images/proximo-proyecto.png';
 ---
 
 <!DOCTYPE html>
@@ -178,7 +181,7 @@ import parkingImg from '../assets/images/flowchart-ai.png';
 
             <article class="col">
                 <article class="card h-100 border-rosa shadow-sm hover-elevate">
-                    <img src="https://cdn.pixabay.com/photo/2016/11/19/14/00/code-1839406_1280.jpg" class="card-img-top"
+                    <Image src={lunatechspaceImg} class="card-img-top"
                         alt="Código en pantalla de computadora para LunaTechSpace" style="height: 200px; object-fit: cover;" loading="lazy" />
                     <article class="card-body">
                         <h3 class="card-title text-rosa h5 fw-bold">LunaTechSpace</h3>
@@ -269,6 +272,39 @@ import parkingImg from '../assets/images/flowchart-ai.png';
                     </article>
                     <article class="card-footer bg-transparent border-rosa border-0 pb-3 text-center">
                         <a href="https://github.com/lunaap2/PlataformaStreaming" class="btn btn-outline-rosa fw-bold rounded-pill px-4" style="color: #ff1493; border-color: #ff1493;" onmouseover="this.style.backgroundColor='#ff1493'; this.style.color='white'" onmouseout="this.style.backgroundColor='transparent'; this.style.color='#ff1493'" target="_blank" rel="noopener noreferrer">Inspeccionar Repositorio</a>
+                    </article>
+                </article>
+            </article>
+
+            <!-- Proyecto: Actividad React -->
+            <article class="col">
+                <article class="card h-100 border-rosa shadow-sm hover-elevate">
+                    <Image src={actividadReactImg} class="card-img-top" alt="Captura web de Actividad React interactiva"
+                        style="height: 200px; object-fit: cover;" loading="lazy" />
+                    <article class="card-body">
+                        <h3 class="card-title text-rosa h5 fw-bold">Actividad en React</h3>
+                        <p class="card-text">Interfaz moderna y dinámica desarrollada como actividad inmersiva en React. Incorpora componentes modulares, gestión de estado y diseño adaptativo que emula lógicas de una Single Page Application.</p>
+                        <span class="badge bg-primary">React JS</span>
+                        <span class="badge bg-dark text-white">UX/UI</span>
+                    </article>
+                    <article class="card-footer bg-transparent border-rosa border-0 pb-3 text-center">
+                        <a href="https://lunaap2.github.io/ActividadReact/" class="btn btn-outline-rosa fw-bold rounded-pill px-4" style="color: #ff1493; border-color: #ff1493;" onmouseover="this.style.backgroundColor='#ff1493'; this.style.color='white'" onmouseout="this.style.backgroundColor='transparent'; this.style.color='#ff1493'" target="_blank" rel="noopener noreferrer">Inspeccionar Proyecto</a>
+                    </article>
+                </article>
+            </article>
+
+            <!-- Proyecto: Próximo Desafío -->
+            <article class="col">
+                <article class="card h-100 border-rosa shadow-sm hover-elevate" style="background-color: #fff0f5;">
+                    <Image src={proximoProyectoImg} class="card-img-top" alt="Símbolo de Próximo Proyecto"
+                        style="height: 200px; object-fit: cover;" loading="lazy" />
+                    <article class="card-body">
+                        <h3 class="card-title text-rosa h5 fw-bold">¡Próximo Gran Desafío!</h3>
+                        <p class="card-text text-muted">Aún construyendo la siguiente línea de código para este espacio. Mantente al tanto de las próximas integraciones y experimentos técnicos incorporados.</p>
+                        <span class="badge bg-secondary opacity-50">Próximamente</span>
+                    </article>
+                    <article class="card-footer bg-transparent border-rosa border-0 pb-3 text-center">
+                        <span class="btn fw-bold rounded-pill px-4 text-muted border" style="cursor: not-allowed; background-color: #e5e7eb;">En desarrollo...</span>
                     </article>
                 </article>
             </article>
